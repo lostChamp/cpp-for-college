@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 	const int SIZE = 16;
-	unsigned short int number, tempNumber, revNumber;
+	unsigned short int number, tempNumber, revNumber = 0;
 	cin >> number;
 	tempNumber = number;
 	for (int i = SIZE; i > 0; --i) {
