@@ -45,21 +45,23 @@ int main() {
 	srand(time(NULL));
 	
 	for(int i = 0; i < number; i++){
-		array[i] = rand() % 51;
+		array[i] = rand() % 50 + 1;
 	}
 	
 	quickSort(array, 0, number - 1);
 	
-	firstPile[0] = array[number - 1];
-	firstWeight += array[number - 1];
+	cout << "Sotred array" << endl;
 	
-	for (int i = 0, j = 0, k = 1; i < number - 1; i++) {
+	for(int i = 0; i < number; i++){
+		cout << array[i] << " ";
+	}
+	
+	for (int i = number - 1, j = 0, k = 0; i >= 0; i--) {
 		if (firstWeight > secondWeight) {
 			secondPile[j++] = array[i];
 			secondWeight += array[i];
 			counter++;
-		}
-		else {
+		} else {
 			firstPile[k++] = array[i];
 			firstWeight += array[i];
 		}
@@ -77,7 +79,10 @@ int main() {
 	}
 	cout << "\nSecond pile weight = " << secondWeight << endl;
 	
-	if(!(secondWeight * 2 >= firstWeight && secondWeight <= firstWeight * 2)){
+	delete[] firstPile;
+	delete[] secondPile;
+	
+	if (!(secondWeight * 2 >= firstWeight && secondWeight <= firstWeight * 2)){
 		cout << "Weights are different more than 2 times";
 	}
 
